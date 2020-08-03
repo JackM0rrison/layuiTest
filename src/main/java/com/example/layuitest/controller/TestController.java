@@ -67,4 +67,10 @@ public class TestController {
         }
         return dataList;
     }
+
+    @RequestMapping("/helloworld")
+    @ResponseBody
+    public String hello(){
+        return "hello world";
+    }
 }
