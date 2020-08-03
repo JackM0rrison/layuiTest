@@ -1,0 +1,24 @@
+spring:
+  datasource:
+    name: test
+    url: jdbc:mysql://192.168.31.138:3306/pratice_test?autoReconnect=true&useUnicode=true&createDatabaseIfNotExist=true&characterEncoding=utf8&serverTimezone=UTC
+    username: root
+    password: 123456
+    driver-class-name: com.mysql.jdbc.Driver
+  mvc:
+    view:
+      prefix: classpath:/templates/
+      suffix: .html
+    static-path-pattern: /**
+  thymeleaf:
+    encoding: UTF-8
+    prefix=classpath: /templates/
+    suffix: .html
+    content-type: text/html
+    model: HTML5
+    cache: false
+mybatis:
+    mapper-locations: classpath:mapping/*.xml
+    type-aliases-package: com.example.layuitest.domain
+server:
+  port: 8083

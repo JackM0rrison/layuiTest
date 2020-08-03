@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="charts_content" style="width: 100%;height:200px;"></div>
+<div id="charts_content1" style="width: 100%;height:200px;"></div>
+</body>
+<script src="../js/jquery-3.2.1.min.js"></script>
+<script src="https://cdn.staticfile.org/echarts/4.3.0/echarts.min.js"></script>
+<script>
+    var myChart;
+    var myChart1;
+    $(document).ready(function () {
+        // 基于准备好的dom，初始化echarts实例
+        myChart = echarts.init(document.getElementById('charts_content'));
+        myChart1 = echarts.init(document.getElementById('charts_content1'));
+        // 指定图表的配置项和数据
+        var option = {
+            title: {
+                text: '第一个 ECharts 实例'
+            },
+            tooltip: {},
+            legend: {
+                data: ['销量']
+            },
+            xAxis: {
+                data: ["衬衫", "羊毛衫", "雪纺衫", "裤子", "高跟鞋", "袜子"]
+            },
+            yAxis: {},
+            series: [{
+                name: '销量',
+                type: 'bar',
+                data: [5, 20, 36, 10, 10, 20]
+            }]
+        };
+        // 使用刚指定的配置项和数据显示图表。
+        myChart.setOption(option);
+        myChart1.setOption(option);
+    });
+
+
+    window.onresize = function () {
+        // var myChart = echarts.getInstanceById(dom.getAttribute('_echarts_instance_'));
+        // var currentHeight = parseFloat($(this).height());
+        // var currentWidth = parseFloat($(this).width());
+        // myChart.style.height = parseFloat(myChart.style.height) * currentHeight / originHeight + 'px';
+        // myChart.style.width = parseFloat(myChart.style.width) * currentWidth /originWidth + 'px';
+        // myChart1.style.height = parseFloat(myChart1.style.height) * currentHeight / originHeight + 'px';
+        // myChart1.style.width = parseFloat(myChart1.style.width) * currentWidth /originWidth + 'px';
+        myChart.resize();
+        myChart1.resize();
+    };
+</script>
+</html>
